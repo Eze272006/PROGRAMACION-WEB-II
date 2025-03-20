@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>USO DE DOM - APLICADO -</title>
+    <title>USO DE DOM - AVANZADO -</title>
     <link rel="icon" type="image/png" href="./assets/rocket.svg" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -19,40 +19,81 @@
   </head>
   <body>
     <main>
-      <div class="mainCard">
+      <!-- Formulario en la parte superior -->
+      <div class="formContainer">
         <div class="title"><img src="./assets/rocket.svg" /></div>
-        <div>
-          <form action="">
-            <input
-              type="text"
-              name="task"
-              placeholder="Nombre de la tarea"
-              class="inputForm"
-              autocomplete="off"
-              data-form-input
-            />
-            <button type="submit" class="btnCreate" data-form-btn>
-              Agregar <i class="fas fa-plus-circle"></i>
-            </button>
-          </form>
+        <form action="" id="taskForm" data-form>
+          <input
+            type="text"
+            name="task"
+            placeholder="Nombre de la tarea"
+            class="inputForm"
+            autocomplete="off"
+            data-input-task
+            required
+          />
+          <input
+            type="text"
+            name="description"
+            placeholder="Descripción"
+            class="inputForm"
+            autocomplete="off"
+            data-input-descripcion
+            required
+          />
+          <input
+            type="date"
+            name="date"
+            placeholder="Fecha"
+            class="inputForm"
+            data-input-fecha
+            required
+          />
+          <input
+            type="text"
+            name="priority"
+            placeholder="Prioridad"
+            class="inputForm"
+            autocomplete="off"
+            data-input-prioridad
+            required
+          />
+          <button type="submit" class="btnCreate">
+            Agregar <i class="fas fa-plus-circle"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Contenedor para la tabla y las cards -->
+      <div class="contentContainer">
+        <!-- Tabla -->
+        <div class="tableContainer">
+          <h2>Lista de Tareas</h2>
+          <table id="taskTable">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Prioridad</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Las filas se agregarán dinámicamente -->
+            </tbody>
+          </table>
         </div>
-        <ul class="cardsList" data-list>
-          <li class="card">
-            <div>
-              <i class="far fa-check-square icon"></i>
-              <span class="task">Hacer curso de DOM</span>
-            </div>
-            <i class="fas fa-trash-alt trashIcon icon"></i>
-          </li>
-          <li class="card">
-            <div>
-              <i class="far fa-check-square icon"></i>
-              <span class="task">Hacer curso de git</span>
-            </div>
-            <i class="fas fa-trash-alt trashIcon icon"></i>
-          </li>
-        </ul>
+
+        <!-- Cards -->
+        <div class="cardsContainer">
+          <h2>Tareas Registradas</h2>
+          <div id="taskCards">
+            <!-- Las cards se agregarán dinámicamente -->
+          </div>
+        </div>
       </div>
     </main>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
